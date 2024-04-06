@@ -1,4 +1,3 @@
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -24,6 +23,8 @@ class Main{
 
             while(attempt<attemptLimit && guessednumber) {
                 System.out.println("Now the available limit is :"+(attemptLimit - attempt));
+                System.out.println();
+                System.out.println("Enter any number:");
                 int userguess = s.nextInt();
 
                 if (userguess == numgenerated) {
