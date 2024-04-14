@@ -3,27 +3,26 @@ import java.util.Scanner;
 class Bankaccount{
     double balance;
 
-    public  Bankaccount(double balance){
+    public Bankaccount(double balance){
         this.balance = balance;
     }
 
-    public double getBalance(){
+    public double balance(){
         return balance;
     }
-
     public void deposit(double amount){
         balance+=amount;
-        System.out.println(amount+" DEPOSITED");
+        System.out.println("Deposited:"+amount);
+        System.out.println("Now the balance is :"+balance);
     }
-    public boolean withdrawl(double amount){
-        if(balance>amount){
+    public void withdraw(double amount){
+        if(amount<=balance){
             balance-=amount;
-            System.out.println(amount+"WITHDRAWED");
-            return true;
+            System.out.println("Withdrawed amount :"+amount);
+            System.out.println("Now the balance is :"+balance);
         }
         else {
-            System.out.println("Insufficient balance");
-            return false;
+            System.out.println("Invalid balance");
         }
     }
 }
@@ -37,58 +36,59 @@ class Atm{
         this.scanner = new Scanner(System.in);
     }
     public void displaymenu(){
-        System.out.println("\n ATM menu");
-        System.out.println("1.Check balance");
-        System.out.println("2.Deposit");
-        System.out.println("3.Withdraw");
+        System.out.println("ATM");
+        System.out.println("1.balance");
+        System.out.println("2.deposit");
+        System.out.println("3.withdraw");
         System.out.println("4.exit");
     }
-    public void checkbalance(){
-        System.out.println("Current Balance :"+bankaccount.getBalance());
+
+    public void Checkbalance(){
+        System.out.println("the balance is :"+bankaccount.balance());
     }
     public void deposit(){
-        System.out.println("Enter The Amount To Be Deposited:");
+        System.out.print("enter the amount to be deposited :");
         double amount = scanner.nextDouble();
         bankaccount.deposit(amount);
-
     }
     public void withdraw(){
-        System.out.println("Enter The Withdrawl Amount:");
+        System.out.print("enter the amount to withdraw :");
         double amount = scanner.nextDouble();
-        bankaccount.withdrawl(amount);
+        bankaccount.withdraw(amount);
     }
-    public void option(int options){
-        switch (options){
+
+    public void displayoption(int option){
+        switch (option){
             case 1:
-                checkbalance();
+                Checkbalance();
                 break;
             case 2:
-                deposit();
+                deposit();;
                 break;
             case 3:
                 withdraw();
                 break;
             case 4:
-                System.out.println("Exiting ATM");
+                System.out.println("Exiting Atm");
                 System.exit(0);
                 break;
             default:
-                System.out.println("Enter the valid option");
+                System.out.println("enter the valid option");
         }
     }
 }
 
 class Main{
     public static void main(String[]args){
-        Bankaccount bankaccount = new Bankaccount(1000);// initial balance
+        Scanner s = new Scanner(System.in);
+        Bankaccount bankaccount = new Bankaccount(1000);
         Atm atm = new Atm(bankaccount);
-        Scanner scanner = new Scanner(System.in);
 
         while(true){
             atm.displaymenu();
-            System.out.println("Choose an Option:");
-            int option = scanner.nextInt();
-            atm.option(option);
+            System.out.print("choose an option:");
+            int option = s.nextInt();
+            atm.displayoption(option);
         }
     }
 }
