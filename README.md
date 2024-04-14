@@ -15,6 +15,7 @@ This is an simple atm interface assignment, In this  it has 4 option:
 
 
 REQUIREMENT FOR RUNNING THE CODE :
+
 *Install JDK on your system and use any of the compiler like IntelliJ IDEA or Visual studio code 
 *Create a file name as main.java because in this program main class name is "Main" else you can simply change the main class name to the file name you created 
 * Note - class name should start with an captial letter 
