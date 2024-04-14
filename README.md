@@ -12,3 +12,9 @@ This is an simple atm interface assignment, In this  it has 4 option:
 * deposit - It allows you to deposit the amount in the account
 * withdraw - It allows you to withdraw an amount from account if the withdrawable amount is lesser the the balance availabe in account
 * exit - this option stop the code from running 
+
+
+REQUIREMENT FOR RUNNING THE CODE :
+*Install JDK on your system and use any of the compiler like IntelliJ IDEA or Visual studio code 
+*Create a file name as main.java because in this program main class name is "Main" else you can simply change the main class name to the file name you created 
+* Note - class name should start with an captial letter 
